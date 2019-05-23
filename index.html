@@ -7,29 +7,53 @@
      <title>id4</title>
 </head>
 
-<body>                <script>
-                            var brianFeed = new Instafeed({
+<body>  
+    
+    <div id="feed" ></div>
+    <script>
+    var feed = new Instafeed({
+get: 'user',
+userId: '6909994807',
+accessToken: '6909994807.1677ed0.128066a7b9984d5392b0143cbde87360',
+clientId: 'c17263aa10a14533a4b43dfe756898ff',
+filter: function(image) {
+return image.tags.indexOf('f') >= 0;
+}
+});
+feed.run();
+//                             var brianFeed = new Instafeed({
    
                                     
   
    
-    get: 'user',
-    userId: '6909994807', 
-    clientId: 'c17263aa10a14533a4b43dfe756898ff',
-    //useHttp: "true",                                
-    limit: '30',
-    resolution: 'standard_resolution',
-     template: '<div class="col-xs-12 col-sm-6 col-md-4"><div class="like-area ml-auto mr-0"><a href="#" id="like-link" class="like-link">Like</a><span id="like-counter" class="like-counter">0</span></div><a href="{{link}}" target="_blank"><div class="img-featured-container"><div class="img-backdrop"></div><div class="description-container"><p class="caption">{{caption}}</p><span class="likes"><i class="icon ion-heart"></i>&heart {{likes}}</span><span class="comments"><i class="icon ion-chatbubble"></i> {{comments}}</span></div><img src="{{image}}" class="img-responsive"></div></a></div>',
+//     get: 'user',
+//     userId: '6909994807', 
+//     clientId: 'c17263aa10a14533a4b43dfe756898ff',
+//     //useHttp: "true",                                
+//     limit: '30',
+//     resolution: 'standard_resolution',
+//      template: '<div class="col-xs-12 col-sm-6 col-md-4"><div class="like-area ml-auto mr-0"><a href="#" id="like-link" class="like-link">Like</a><span id="like-counter" class="like-counter">0</span></div><a href="{{link}}" target="_blank"><div class="img-featured-container"><div class="img-backdrop"></div><div class="description-container"><p class="caption">{{caption}}</p><span class="likes"><i class="icon ion-heart"></i>&heart {{likes}}</span><span class="comments"><i class="icon ion-chatbubble"></i> {{comments}}</span></div><img src="{{image}}" class="img-responsive"></div></a></div>',
                                
-    filter: function(image) {
-        console.log(image);
-        return image.tags.indexOf('f') >= 0;
-    }
+//     filter: function(image) {
+//         console.log(image);
+//         return image.tags.indexOf('f') >= 0;
+//     }
 
-});
+// });
 
-brianFeed.run();
+// brianFeed.run();
+//     $(window).on("load", function() {
+//     $('#instafeed > a > img').each(function(){
+//         var src = $(this).attr('src');
+//         $(this).attr('src',src.replace('150x150', '320x320'));
+//     });
+// });
+// For this to work, you need to use the thumbnail resolution.
+
+// I didn't use $(window).load(function() { }); since this function is deprecated since JQuery 1.8 and removed in JQuery 3.0. I used $(window).on("load", function() { }); instead.
+
+// EDIT: you can use these resolutions : 150, 320, 640, 1080 etc.
                           </script>
-                           <div id="brianFeed" class="gallery row no-gutter"></div>
+                           
                            </body>
                            </html>
